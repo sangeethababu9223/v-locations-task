@@ -1,0 +1,174 @@
+.valtech-locations {
+    &__outer-wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    &__inner-wrapper {
+        width: 100%;
+        max-width: 1280px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        height: $gridHeight;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 50px;
+        text-align: center;
+        color: $textColor;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        border-radius: 10px;
+        margin: 7px;
+        position: relative;
+        cursor: pointer;
+        box-shadow: 0 10px 24px 0px rgba(0, 0, 0, 0.02), 0 8px 20px -2px rgba(0, 0, 0, 0.06), 0 6px 10px -6px rgba(0, 0, 0, 0.1);
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: none;
+            border-radius: 3px;
+            box-shadow: 0 10px 24px 0px rgba(0, 0, 0, 0.02), 0 8px 20px -2px rgba(0, 0, 0, 0.06), 0 6px 10px -6px rgba(0, 0, 0, 0.1);
+            transition: opacity 0.1s ease-in;
+            will-change: opacity;
+            opacity: 0;
+        }
+
+        &:hover {
+            transform: translate(0, -4px);
+            transform: translate3d(0, -4px, 0);
+
+            &:before {
+                opacity: 1;
+            }
+
+            .valtech-locations__details {
+                box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.4);
+            }
+        }
+
+        @media screen and (max-width: $largeScreen) {
+            height: $gridHeightLarge;
+        }
+
+        @media screen and (max-width: $mediumScreen) {
+            height: $gridHeightMedium;
+            border-radius: 0;
+            margin: 7px 12px;
+        }
+
+        @media screen and (max-width: $smallScreen) {
+            height: $gridHeightSmall;
+        }
+
+        &--1 {
+            width: 100%;
+
+            .valtech-locations__title {
+                text-transform: none;
+                font-size: $titleFontSize;
+
+                @media screen and (max-width: $mediumScreen) {
+                    font-size: $titleFontSizeSmall;
+                }
+            }
+        }
+
+        &--2,
+        &--7 {
+            width: calc(50% - 14px);
+
+            @media screen and (max-width: $largeScreen) {
+                width: calc(33% - 14px);
+            }
+
+            @media screen and (max-width: $mediumScreen) {
+                width: 100%;
+            }
+        }
+
+        &--3,
+        &--4,
+        &--5,
+        &--6 {
+            width: calc(25% - 14px);
+
+            @media screen and (max-width: $largeScreen) {
+                width: calc(33.33% - 14px);
+            }
+
+            @media screen and (max-width: $mediumScreen) {
+                width: 100%;
+            }
+        }
+    }
+
+    &__details {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+        transition: box-shadow 0.1s, transform 0.1s;
+
+        @media screen and (max-width: $mediumScreen) {
+            border-radius: 0;
+            margin: 7px 12px;
+        }
+
+        .valtech-locations__title {
+            margin-bottom: 5px;
+        }
+    }
+
+    &__meta-title,
+    &__title {
+        text-transform: uppercase;
+        margin: 0;
+        font-weight: 400;
+    }
+
+    &__meta-title {
+        font-size: $regularFontSize;
+        margin-bottom: 5px;
+    }
+
+    &__title {
+        font-size: $largeFontSize;
+    }
+
+    &__description {
+        &--hover {
+            margin-bottom: 15px;
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+        color: $textColor;
+        font-size: $regularFontSize;
+        border: solid 2px $textColor;
+        border-radius: 5px;
+        padding: 5px;
+        display: inline-block;
+        font-weight: 500;
+    }
+}
